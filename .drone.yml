@@ -34,7 +34,9 @@ steps:
         from_secret: docker_password
       repo: dipievil/drone-gotify 
       dockerfile: docker/Dockerfile
-      auto_tag: true
+      tags:
+        - latest
+        - ${DRONE_TAG:-main}
     when:
       event:
         - push

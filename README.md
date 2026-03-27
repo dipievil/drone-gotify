@@ -29,3 +29,7 @@ PLUGIN_TITLE="Build {{build.number}}"
 PLUGIN_MESSAGE="Status: {{build.status}}"
 PLUGIN_MARKDOWN=true
 ```
+
+## License
+
+Licensed under the Apache License 2.0. See [LICENSE](LICENSE).

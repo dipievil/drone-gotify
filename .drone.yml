@@ -1,0 +1,38 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+# Configuração do Workspace (útil para build e testes em Go)
+workspace:
+  base: /go
+  path: src/drone-gotify
+
+steps:
+  - name: test
+    image: golang:1.22-alpine
+    commands:
+      - apk add --no-cache make
+      - make test
+    when:
+      event:
+        - push
+        - pull_request
+
+  - name: publish
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: dipi/drone-gotify 
+      dockerfile: docker/Dockerfile
+      auto_tag: true
+    when:
+      event:
+        - push
+        - tag
+      branch:
+        - main
+        - master

@@ -5,7 +5,7 @@ author: dipi
 tags: [ gotify, notifications, chat ]
 repo: drone-gotify/drone-gotify
 logo: gotify.svg
-image: plugins/gotify
+image: dipievil/drone-gotify
 ---
 
 The Gotify plugin posts build status messages to a Gotify server. The below pipeline configuration demonstrates simple usage:
@@ -13,9 +13,9 @@ The Gotify plugin posts build status messages to a Gotify server. The below pipe
 ```yaml
 steps:
 - name: gotify
-  image: plugins/gotify
+  image: dipievil/drone-gotify
   settings:
-    url: https://gotify.example.com
+    url: ttps://my-gotify-instance:8081
     token: secret_app_token
     title: "Drone CI Build"
     message: "Build finished!"
@@ -26,9 +26,9 @@ Example configuration with markdown and click URL:
 ```yaml
 steps:
 - name: gotify
-  image: plugins/gotify
+  image: dipievil/drone-gotify
   settings:
-    url: https://gotify.example.com
+    url: ttps://my-gotify-instance:8081
     token: secret_app_token
     title: "Drone CI: {{repo.name}}"
     message: "Build {{build.number}} triggered by {{commit.author}} {{build.status}}."

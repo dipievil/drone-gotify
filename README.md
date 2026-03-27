@@ -9,9 +9,9 @@ Set up the plugin in your `.drone.yml`:
 ```yaml
 steps:
   - name: send-gotify-notification
-    image: plugins/gotify
+    image: dipievil/drone-gotify
     settings:
-      url: https://gotify.example.com
+      url: ttps://my-gotify-instance:8081
       token: your-gotify-app-token
       title: "Drone Build #{{build.number}}"
       message: "The build {{build.status}} on branch {{commit.branch}}."
@@ -23,7 +23,7 @@ steps:
 When running locally, you can use `.env` to configure the settings:
 
 ```dotenv
-PLUGIN_URL=https://gotify.example.com
+PLUGIN_URL=ttps://my-gotify-instance:8081
 PLUGIN_TOKEN=my-app-token
 PLUGIN_TITLE="Build {{build.number}}"
 PLUGIN_MESSAGE="Status: {{build.status}}"

@@ -1,6 +1,6 @@
 # drone-gotify
 
-Drone plugin to send notifications to [Gotify](https://gotify.net/). 
+Drone plugin to send notifications to [Gotify](https://gotify.net/).
 
 ## Usage
 
@@ -15,8 +15,7 @@ steps:
       token: your-gotify-app-token
       title: "Drone Build #{{build.number}}"
       message: "The build {{build.status}} on branch {{commit.branch}}."
-      markdown: true
-      click_url: "{{build.link}}"
+      markdown: true      
 ```
 
 ## Environment Variables

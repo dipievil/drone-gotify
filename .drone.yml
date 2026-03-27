@@ -8,6 +8,12 @@ workspace:
   base: /go
   path: src/drone-gotify
 
+trigger:
+  branch:
+    - main
+  event:
+    - tag
+
 steps:
   - name: test
     image: golang:1.22-alpine

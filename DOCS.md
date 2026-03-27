@@ -15,7 +15,7 @@ steps:
 - name: gotify
   image: dipievil/drone-gotify
   settings:
-    url: ttps://my-gotify-instance:8081
+    url: https://my-gotify-instance:8081
     token: secret_app_token
     title: "Drone CI Build"
     message: "Build finished!"
@@ -28,7 +28,7 @@ steps:
 - name: gotify
   image: dipievil/drone-gotify
   settings:
-    url: ttps://my-gotify-instance:8081
+    url: https://my-gotify-instance:8081
     token: secret_app_token
     title: "Drone CI: {{repo.name}}"
     message: "Build {{build.number}} triggered by {{commit.author}} {{build.status}}."

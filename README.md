@@ -11,7 +11,7 @@ steps:
   - name: send-gotify-notification
     image: dipievil/drone-gotify
     settings:
-      url: ttps://my-gotify-instance:8081
+      url: https://my-gotify-instance:8081
       token: your-gotify-app-token
       title: "Drone Build #{{build.number}}"
       message: "The build {{build.status}} on branch {{commit.branch}}."
@@ -23,7 +23,7 @@ steps:
 When running locally, you can use `.env` to configure the settings:
 
 ```dotenv
-PLUGIN_URL=ttps://my-gotify-instance:8081
+PLUGIN_URL=https://my-gotify-instance:8081
 PLUGIN_TOKEN=my-app-token
 PLUGIN_TITLE="Build {{build.number}}"
 PLUGIN_MESSAGE="Status: {{build.status}}"

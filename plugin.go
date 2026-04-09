@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	"github.com/appleboy/drone-template-lib/template"
+	stripmd "github.com/writeas/go-strip-markdown"
 )
 
 type (
@@ -91,6 +92,7 @@ var icons = map[string]string{
 	"success":   "✅",
 }
 
+// templateMessage renders the message template with the plugin data.
 func templateMessage(t string, plugin Plugin) (string, error) {
 	return template.RenderTrim(t, plugin)
 }
@@ -120,6 +122,7 @@ func (p Plugin) DefaultMessage() string {
 	)
 }
 
+// buildExtras builds the extras field for the Gotify message based on the plugin configuration.
 func (p Plugin) buildExtras() map[string]interface{} {
 	extras := make(map[string]interface{})
 
@@ -162,6 +165,10 @@ func (p Plugin) Exec() error {
 		}
 	} else {
 		message = p.DefaultMessage()
+	}
+
+	if p.Config.Markdown == false {
+		message = stripmd.Strip(message)
 	}
 
 	title, err := templateMessage(p.Config.Title, p)

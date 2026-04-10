@@ -51,7 +51,7 @@ name: release-pipeline
 
 steps:
   - name: release
-    image: oven/bun:alpine
+    image: node:lts
     environment:
       GITHUB_TOKEN:
         from_secret: GITHUB_PAT
@@ -60,8 +60,11 @@ steps:
       GITHUB_NAME:
         from_secret: GITHUB_NAME
     commands:
+      - curl -fsSL https://bun.com/install | bash
+      - export PATH="$HOME/.bun/bin:$PATH"
       - git config --global user.email "$GITHUB_EMAIL"
       - git config --global user.name "$GITHUB_NAME"
+      - bun install
       - bunx semantic-release
 
 trigger:

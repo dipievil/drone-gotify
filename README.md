@@ -1,6 +1,6 @@
 # Drone Gotify Plugin
 
-![Go](https://img.shields.io/badge/Go-1.22-00ADD8?logo=go&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white) | ![License](https://img.shields.io/github/license/dipievil/drone-gotify) | ![Drone CI](https://img.shields.io/badge/Drone%20CI-Compatible-success?logo=drone)
+![Go](https://img.shields.io/badge/Go-1.26-00ADD8?logo=go&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white) | ![License](https://img.shields.io/github/license/dipievil/drone-gotify) | ![Build Status](https://devops-server.tailc72393.ts.net/api/badges/dipievil/drone-gotify/status.svg)
 
 A lightweight Drone CI plugin to send build notifications to [Gotify](https://gotify.net/) with customizable messages and formatting.
 

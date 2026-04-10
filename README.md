@@ -1,7 +1,6 @@
-# drone-gotify
+# Drone Gotify Plugin
 
-![Go](https://img.shields.io/badge/Go-1.22-00ADD8?logo=go&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white) | ![License](https://img.shields.io/github/license/dipievil/drone-gotify)
-![Drone CI](https://img.shields.io/badge/Drone%20CI-Compatible-success?logo=drone)
+![Go](https://img.shields.io/badge/Go-1.22-00ADD8?logo=go&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white) | ![License](https://img.shields.io/github/license/dipievil/drone-gotify) | ![Drone CI](https://img.shields.io/badge/Drone%20CI-Compatible-success?logo=drone)
 
 A lightweight Drone CI plugin to send build notifications to [Gotify](https://gotify.net/) with customizable messages and formatting.
 
@@ -23,7 +22,7 @@ A lightweight Drone CI plugin to send build notifications to [Gotify](https://go
 
 ## About
 
-**drone-gotify** is a plugin for [Drone CI](https://www.drone.io/) that integrates seamlessly with [Gotify](https://gotify.net/), a simple server for sending and receiving notifications. Use this plugin to send build status updates, test results, and custom notifications to your Gotify instance directly from your CI/CD pipeline.
+**drone-gotify** is a plugin for [Drone CI](https://www.drone.io/) that integrates seamlessly with [Gotify](https://gotify.net/), a simple server for sending and receiving notifications. Use this plugin to send build status updates, test results, and custom notifications to your Gotify instance directly from your CI/CD pipeline. This project is based on the [drone-telegram](https://github.com/appleboy/drone-telegram) plugin.
 
 ### Features
 
@@ -65,7 +64,8 @@ steps:
 By default, the plugin sends build status notifications:
 
 **On success:**
-```
+
+```markdown
 ✅ Build #42 of `my-repo` succeeded.
 Commit by `john.doe` on `main`:
 
@@ -75,7 +75,8 @@ chore: update README.md
 ```
 
 **On failure:**
-```
+
+```markdown
 ❌ Build #42 of `my-repo` failed.
 Commit by `john.doe` on `main`:
 
@@ -83,8 +84,6 @@ chore: update README.md
 
 🌐 https://drone.example.com/my-repo/42
 ```
-
-
 
 #### Example 2: Custom Title
 
@@ -114,7 +113,8 @@ steps:
       priority: 10
 ```
 
-Message output:
+_Message output:_
+
 ```
 ✅ Build #42 of `my-repo` succeeded.
 Commit by `john.doe` on `main`:
@@ -353,6 +353,8 @@ This project is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE
 - [Drone CI](https://www.drone.io/) - The leading open-source continuous integration platform
 - [urfave/cli](https://github.com/urfave/cli) - A simple, fast, and fun package for building command line apps in Go
 - [godotenv](https://github.com/joho/godotenv) - A Go port of the Ruby dotenv project
+- [drone-telegram](https://github.com/appleboy/drone-telegram) - A Drone plugin for sending notifications to Telegram
+
 
 ---
 

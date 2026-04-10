@@ -3,7 +3,6 @@ kind: pipeline
 type: docker
 name: default
 
-# Configuração do Workspace (útil para build e testes em Go)
 workspace:
   base: /go
   path: src/drone-gotify
@@ -61,15 +60,10 @@ steps:
       GITHUB_NAME:
         from_secret: GITHUB_NAME
     commands:
-      # Install Bun for faster package management
       - curl -fsSL https://bun.com/install | bash
       - export PATH="$HOME/.bun/bin:$PATH"
-      
-      # Configure Git user for release commits
       - git config --global user.email "$GITHUB_EMAIL"
       - git config --global user.name "$GITHUB_NAME"
-      
-      # Install dependencies and run semantic-release
       - bun install
       - bunx semantic-release
 

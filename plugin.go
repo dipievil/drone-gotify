@@ -78,10 +78,11 @@ type (
 		Tpl    map[string]string
 	}
 
+	// make priority optional in the payload
 	GotifyMessage struct {
 		Title    string                 `json:"title"`
 		Message  string                 `json:"message"`
-		Priority int                    `json:"priority"`
+		Priority int                    `json:"priority,omitempty"`
 		Extras   map[string]interface{} `json:"extras,omitempty"`
 	}
 )
@@ -176,11 +177,22 @@ func (p Plugin) Exec() error {
 		return fmt.Errorf("error templating title: %w", err)
 	}
 
+	if p.Config.Priority > 0 {
+
+		priorityMsg := GotifyMessage{
+			Title:    title,
+			Message:  message,
+			Priority: p.Config.Priority,
+			Extras:   p.buildExtras(),
+		}
+
+		return p.Send(priorityMsg)
+	}
+
 	msg := GotifyMessage{
-		Title:    title,
-		Message:  message,
-		Priority: p.Config.Priority,
-		Extras:   p.buildExtras(),
+		Title:   title,
+		Message: message,
+		Extras:  p.buildExtras(),
 	}
 
 	return p.Send(msg)

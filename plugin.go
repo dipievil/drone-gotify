@@ -110,7 +110,7 @@ func (p Plugin) DefaultMessage() string {
 		)
 	}
 
-	return fmt.Sprintf("%s Build #%d of `%s` %s.\n\n📝 Commit by %s on `%s`:\n``` %s ```\n\n🌐 %s",
+	return fmt.Sprintf("%s Build #%d of `%s` %s.\n\n📝 Commit by %s on `%s`:\n```\n %s \n ```\n\n🌐 %s",
 		icon,
 		p.Build.Number,
 		p.Repo.FullName,
